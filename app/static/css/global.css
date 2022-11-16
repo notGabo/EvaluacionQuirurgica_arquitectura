@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&family=Ubuntu:wght@300;400;500;700&display=swap');
+
+*{
+    font-family: 'Ubuntu', sans-serif;
+
+}
+
+body{
+    background: #F2F2F2;
+    margin: 0;
+}
+
+/*#region HEADER*/
+header{
+    background-image: url('../img/header_img.jpg');
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: 0 80%;
+    
+    width: 100%;
+    height: 16rem;
+
+}
+
+nav{
+    position: relative;
+    width: 70%;
+    height: 2.5rem;
+    top: 13.5rem;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    background: white;
+
+    /* flexbox-navbar */
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+
+}
+
+nav>nav-item, nav>label{
+    flex-grow: 1;
+    
+    padding-top: 0.75rem;
+
+    border-width: 0px 0.5px 2px 0px;
+    border-style: solid;
+    border-color: #BDC9D1;
+    
+    font-family: 'Ubuntu Condensed', sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    text-transform: capitalize;
+    
+    text-align: center;
+    text-decoration: none;
+    
+    color: #475156;
+    cursor: pointer;
+}
+
+nav>nav-item:hover, nav>nav-item.nav-active{
+    color: #0F69B4;
+    border-color: #BDC9D1 #BDC9D1 #0F69B4 #BDC9D1;
+}
+
+.dropdown {
+    display: inline-block;
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    width: 100%;
+    overflow: auto;
+    /* box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.4); */
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    margin-top: calc(0.5rem + 2px);
+    
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 0.75rem;
+
+    border-width: 0px 0px 1px 0px;
+    border-style: solid;
+    border-color: #3091C1;
+    
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.75rem;
+
+    background-color: #0F69B4;
+}
+
+.dropdown-content a:hover {
+    background-color: #045282;
+}
+
+.logo-chile{
+    position: absolute;
+    left: 15%;
+    margin: 0;
+}
+
+/*#endregion */
+
+/*#region FOOTER*/
+footer{
+    background: rgb(255, 255, 255);
+    width: 60rem;
+
+    margin: 3rem auto 0 auto;
+
+}
+.footer-line-chile{
+    background: linear-gradient(90deg, #0F69B4 40%, #EB3646 40%);
+    border: 0;
+}
+
+.footer-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border-bottom: 1px solid #d6d6d6;
+    margin: 1rem;
+}
+.lista.border-gray{
+    padding: 0 2rem 0 2rem;
+    border-left: 1px solid #d6d6d6;
+}
+
+.lista>h4{
+    color: #0F69B4;
+    font-family: 'Ubuntu';
+    font-weight: normal;
+}
+
+.lista>ul{
+    font-size: 0.75rem;
+    color: #475156;
+    padding-left: 1rem;
+    line-height: 1.2rem;
+}
+
+.footer-text{
+    color: #475156;
+    font-size: 0.7rem;
+    text-indent: 1rem;
+    margin-bottom: 1rem;
+}
+
+.footer-chile{
+    background: linear-gradient(90deg, #0F69B4 42%, #EB3646 42%);
+    border: 0;
+    margin: 1.5rem 0 0 1rem;
+    padding: 0.5rem 3.3rem 0 0;
+}
+
+/*#endregion*/
+
+
+.main-content{
+    min-height: calc(100vh - 239px);
+}

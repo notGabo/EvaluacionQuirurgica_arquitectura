@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}">
+</head>
+<body>
+    <header>
+        <img src="https://redsalud.ssmso.cl/wp-content/uploads/2016/08/isologo-ssmso.jpg" alt="" class="logo-chile">
+        <nav>
+            <!-- <nav-item href="https://redsalud.ssmso.cl/">Inicio</nav-item> -->
+            <nav-item href="{{ url_for('login') }}" {% if data.actualOption == 'login' %} class="nav-active" {% endif %}>Iniciar sesión</nav-item>
+            <!-- <nav-item href="#">soporte técnico</nav-item> -->
+            <nav-item href="#" class="dropdown {% if data.actualOption == 'pre-quirurgico' %} nav-active{% endif %}">
+                Pre quirúrgico
+                <div class="dropdown-content">
+                    <a href="{{ url_for('evaluarPaciente')}}">Evaluar Paciente</a>
+                    <a href="{{ url_for('buscarPaciente')}}">Buscar Paciente</a>
+                </div>
+            </nav-item>
+            <nav-item href="#">Programación de Pabellones</nav-item>
+            <nav-item href="#">Post quirúrgico</nav-item>
+            <!-- <nav-item href="#"></nav-item> -->
+        </nav>
+    </header>
+
+    <div class="main-content">
+        {% block content %}
+        {% endblock %}
+    </div>
+    <footer>
+        <hr size="4" width="100%" class="footer-line-chile">
+        <div class="footer-container">
+            <div class="lista">
+                <h4>Gestión de Salud</h4>
+                <ul>
+                    <li>DEIS</li>
+                    <li>GES – Registro Urgencia</li>
+                    <li>Gestión de Camas</li>
+                    <li>Proyecto MIS</li>
+                    <li>Urgencia Infantil</li>
+                </ul>
+            </div>
+            <div class="lista border-gray">
+                <h4>Normas y Manuales</h4>
+                <ul>
+                    <li>Biblioteca de Red Cardiovalcular</li>
+                    <li>CAIF</li>
+                    <li>Departamento de Calidad y Seguridad del Paciente</li>
+                    <li>Departamento de Emergencia yDesastre</li>
+                    <li>Manual de Synapse</li>
+                    <li>Protocolos</li>
+                    <li>Sidra</li>
+                </ul>
+            </div>
+        
+        
+            <div class="lista border-gray">
+                <h4>Sistemas</h4>
+                <ul>
+                    <li>Auto Consulta RRHH</li>
+                    <li>Centros Tratamiento Alcohol y Drogas</li>
+                    <li>Fondos de Ojos</li>
+                    <li>Laboratorio en Línea</li>
+                    <li>Sineav Atención Primaria</li>
+                    <li>Sineav Hospitales 3.0</li>
+                    <li>Sistema Tabaquismo SSMSO</li>
+                    <li>Sistema para la visualización de imágenes</li>
+                    <li>Mapa Urgencia SSMSO</li>
+                    <li>SISAPS</li>
+                    <li>SGS – Sistema Gestión SIDRA 2.0</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-text">Servicio de Salud Metropolitano Sur Oriente - Dirección: Avda. Concha y Toro 3459, Puente Alto - Chile - Teléfono: (02) 25762300</div>
+        <hr size="15" width="100rem" class="footer-chile">
+    </footer>
+</body>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</html>
