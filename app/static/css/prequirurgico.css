@@ -1,103 +1,7 @@
-/*#region login */
-.frame-login{
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    align-content: center;
-
-    width: 60%;
-    margin: 3rem auto 3rem auto;
-    
-    background: #FFFFFF;
-    border-radius: 5px;
-}
-.login-side{
-    width: 50%;
-}
-
-.login-side.left{
-    margin: 0 0 0 5%;
-}
-
-.login-side.left>p{
-    font-weight: 500;
-    font-size: 1.2rem;
-}
-
-.container-text{
-    margin-top: calc(42% - 0.8rem);
-}
-
-.chile-block{
-    width: 30%;
-    height: 0.8rem;
-    background: linear-gradient(90deg, #0F69B4 40.86%, #EB3646 40.86%);
-}
-
-.login-side.right{
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    justify-content: center;
-    margin: 2% 0 2% 0;
-    padding: 9% 2.5% 9% 2.5%;
-    border-left: 1px solid #D7D7D7;
-    
-}
-
-.login-side.right h3{
-    margin: 0 0 15% 0;
-}
-
-.login-input{
-    width: 75%;
-
-    padding: 0.5rem 0 0.5rem 0;
-    margin: 0 0 1rem 0;
-    text-indent: 7%;
-
-    border-radius: 5px;
-    background: #FFFFFF;
-    border: 1px solid #C2C2C2;
-}
-
-.login-input:focus{
-    border-color: #8f8f8f;
-}
-
-.login-forgot{
-    color: #0F69B4;
-    background: local;
-    border: 0;
-    width: 50%;
-    margin: 0.5rem 25% 3rem 25%;
-}
-
-.login-forgot:hover{
-    color: #09416e;
-}
-
-.login-ingresar{
-    color: white;
-
-    border: 0;
-    width: 50%;
-    height: 2rem;
-
-    border-radius: 5px;
-    background: #0F69B4;
-
-}
-.login-ingresar:hover{
-    background: #09416e;
-}
-
-/*#endregion*/
-
 .frame-parent{
     padding: 1rem;
 
-    width: 65%;
+    width: 70%;
     margin: 3rem auto 3rem auto;
     
     background: #FFFFFF;
@@ -105,68 +9,386 @@
 }
 .frame-parent>h2{
     margin-top: 1rem;
-    color: #0F69B4;
+    color: var(--primary-N);
     text-align: center;
 }
-/*#region buscarPaciente*/
-.tipo-documento{
-    width: 65%;
-    margin: 0 auto 0 auto;
-}
+/* #region buscarInterconsulta*/
 
 .tipo-documento>h4{
     margin-bottom: 0.5rem;
 }
 
-.tipo-documento>select{
-    width: 100%;
-    padding: 0.4rem;
-    padding-right: 0;
-
-    font-size: 0.95rem;
-
-    border-color: #C2C2C2;
-    border-radius: 0.3rem;
-    cursor: pointer;
-}
-
 .tipo-documento>#option-input{
-    width: calc(100% - 2px);
-    padding: 0.5rem 0 0.5rem 0;
     margin: 0;
-    
-    font-size: 0.95rem;
-    text-indent: 4%;
-
-    border: 1px solid #8f8f8f;
-    border-radius: 0.3rem;
 }
 
 .tipo-documento > #option-message{
     margin-top: 0.5rem;
 }
 
-.tipo-documento > input[type=submit]{
-    padding: 0.5rem 3rem 0.5rem 3rem;
+.tipo-documento > button[type=submit]{
     margin-top: 4rem;
     margin-left: 95%;
+}
 
+table#resultado-ic{
+    border-collapse: collapse;
+    
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+}
+
+table#resultado-ic>thead th{
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 0.5rem;
+
+    text-align: start;
     color: white;
-    background-color: #0F69B4;
     
-    border: 0;
-    border-radius: 0.3rem;
+    background-color: var(--primary-D);
 }
 
-.tipo-documento > input[type=submit]:hover{
-    background-color: #09416e;
-    cursor: pointers;
+table#resultado-ic>tbody td{
+    padding: 0.8rem 0.5rem 0.8rem 0.5rem;
+}
+
+table#resultado-ic>tbody tr:nth-child(even){
+    background-color: var(--primary-XL);
+}
+
+table#resultado-ic>tbody tr:hover{
+    color: white;
+    background-color: var(--primary-N);
+    cursor: pointer;
+    
 }
 
 /*#endregion*/
 
-/*#region evaluarPaciente*/
+/* #region datosPaciente*/
 .datos-paciente{
-    
+    padding: 0 15% 0 15%;
+
 }
+
+.input-group{
+    display: flex;
+    justify-content: space-between;
+    /* align-content: center; */
+    flex-wrap: wrap;
+    flex-direction: row;
+
+    margin-bottom: 1rem;
+}
+
+.input-group>label{
+    font-weight: bold;
+    font-size: medium;
+    text-transform: capitalize;
+
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+}
+
+.datos-paciente>.input-button{
+    margin-top: 4rem;
+    margin-left: 95%;
+}
+
 /*#endregion*/
+
+/* #region evaluacionEnfermedades y evaluacionRiesgo*/
+.evaluacion-item{
+    border-bottom: 1px#C2C2C2 solid;
+    padding: 0 0.5rem 0.5rem 0.5rem;
+    user-select: none;
+    flex-wrap: nowrap;
+
+    cursor: pointer;
+}
+.evaluacion-item>label{
+    font-weight: normal;
+    cursor: pointer;
+
+}
+.evaluacion-item:hover>input.input-checkbox:not(:checked){
+    background-color: var(--primary-N);
+}
+
+.evaluacion-riesgo{
+    display: flex;
+    justify-content: space-between;
+    height: 70vh;
+}
+.riesgo-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    border-left: 1px #8f8f8f solid;
+}
+.riesgo-section>span{
+    background-color: var(--primary-N);
+    color: white;
+    font-size: x-large;
+    font-weight: bold;
+    border-radius: 0.25rem;
+
+    box-shadow: 1px 5px 22px -16px rgba(0,0,0,1);
+    -webkit-box-shadow: 1px 5px 22px -16px rgba(0,0,0,1);
+    -moz-box-shadow: 1px 5px 22px -16px rgba(0,0,0,1);
+}
+.procedimientos-section{
+    overflow-y: scroll;
+}
+
+/*#endregion */
+
+/* #region derivacion  */
+.agendar-options{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+    padding: 1rem 1rem 0 1rem;
+    border-bottom: 1px black solid;
+    background-color: var(--primary-N);
+
+    box-shadow: -1px -2px 20px -5px rgb(0 0 0 / 23%);
+    -webkit-box-shadow: -1px -2px 20px -5px rgb(0 0 0 / 23%);
+    -moz-box-shadow: -1px -2px 20px -5px rgb(0 0 0 / 23%);
+}
+.agendar-options>button{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+
+    width: 5.5rem;
+    height: 4rem;
+    
+    background-color: var(--primary-N);
+    color: rgb(221, 221, 221);
+    border: 1px #ffffff solid;
+    border-radius: 0.25rem;
+
+    cursor: pointer;
+}
+.agendar-options>button:hover{
+    background-color: var(--primary-D);
+}
+.agendar-options>button.activo{
+
+    color: var(--primary-N);
+
+    background-color: white;
+    border-color: var(--primary-D);
+    border-bottom: transparent;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+
+    cursor: default;
+
+    height: 4.6rem;
+    position: relative;
+    top: 1px;
+}
+.agendar-options>button.activo>.button-dia{
+    color: var(--primary-N);
+
+}
+
+button.change-week{
+    width: 2.5rem;
+    height: 2.5rem;
+    align-items: center;
+    border: none;
+    
+    font-size: x-large;
+    font-weight: bold;
+    color: white;
+
+}
+button.change-week:hover{
+    background-color: transparent;
+    font-size: xx-large;
+}
+.agendar-mes{
+    text-transform: uppercase;
+}
+.button-dia{
+    font-size: larger;
+    font-weight: bold;
+    color: white;
+}
+
+.agendar-content{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    user-select: none;
+
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    background: white;
+    min-height: 14.1rem;
+}
+
+.agendar-content>button{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+
+    width: 7rem;
+    height: 5rem;
+
+    margin: 1rem;
+    
+    font-size: large;
+    font-weight: bold;
+
+    background: white;
+    border: 1px var(--primary-XD) solid;
+    border-radius: 0.15rem;
+
+    color: var(--primary-N);
+
+    cursor: pointer;
+
+    box-shadow: 1px 5px 22px -16px rgba(0,0,0,1);
+    -webkit-box-shadow: 1px 5px 22px -16px rgba(0,0,0,1);
+    -moz-box-shadow: 1px 5px 22px -16px rgba(0,0,0,1);
+}
+
+.agendar-content>button>span{
+    color: var(--primary-D);
+    font-size: medium;
+    font-weight: normal;
+}
+.agendar-content>button:hover{
+    background: #f0f0f0;
+}
+.agendar-content>button.activo{
+    background: var(--primary-N);
+    color: white;
+    border: 1px var(--primary-XD) solid;
+
+    box-shadow:         inset 3px 5px 20px -10px rgb(0 0 0);
+    -webkit-box-shadow: inset 3px 5px 20px -10px rgb(0 0 0);
+    -moz-box-shadow:    inset 3px 5px 20px -10px rgb(0 0 0);
+
+}
+.agendar-content>button.activo>span{
+    color: white;
+}
+
+
+/* #endregion */
+
+/* #region progress bar*/
+.frame-progress{
+    width: 55%;
+    margin: 0 auto 0 auto;
+}
+
+.frame-progress>.progreso{
+    position: relative;
+    top: 4.25rem;
+        
+    width: calc(100% - 10rem);
+    height: 1rem;
+    
+    z-index: -1;
+    background: #ababab;
+}
+
+.frame-progress>.progreso>.barra-progreso{
+    display: block;
+    background: linear-gradient(70deg, rgba(9,65,110,1) 0%, rgba(15,105,180,1) 100%);
+    height: 100%;
+    border-radius: 0.2rem;
+}
+
+#parent-steps{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+}
+#parent-steps>.step{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: flex-start;
+
+    width: 10rem;
+    min-height: 6rem;
+}
+
+
+/* ---------------NO ACTIVO--------------- */
+
+.step>.circle{
+    height: 3rem;
+    width: 3rem;
+    margin: 0 auto 0 auto;
+
+    background-color: #FFFFFF;
+    border: 2px solid var(--primary-N);
+
+    /* background-color: var(--primary-N); */
+    
+    color: var(--primary-N);
+    font-size: 2rem;
+    text-transform: uppercase;
+    line-height: 3rem;
+
+    border-radius: 10rem;
+}
+#parent-steps span{
+    font-weight: normal;
+}
+
+/* ---------------ACTIVO--------------- */
+
+.step.activo>.circle{
+
+    background-color: var(--primary-N);
+    border: 2px transparent white;
+
+    color: #FFFFFF;
+}
+
+.step.activo>span{
+    font-weight: bold;
+}
+
+/* ---------------LISTO--------------- */
+.step.listo>.circle{
+
+    background-color: var(--primary-D);
+    border: 2px transparent white;
+
+    color: #FFFFFF;
+}
+
+.step.listo>span{
+    font-weight: bold;
+}
+
+/* #endregion*/

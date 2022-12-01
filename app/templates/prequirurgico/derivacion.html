@@ -1,0 +1,43 @@
+{% extends './layout.html' %}
+
+{% block title %}{{ data.titulo }}{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/prequirurgico.css') }}">
+
+{% include './prequirurgico/prequirurgico_steps.html' %}
+
+<section class="frame-parent">
+
+   <h2 class="text-center m-b-1">AGENDAR EXAMEN</h2>
+   <form class="w-100 p-auto text-end" method="POST">
+
+      <div class="agendar-options m-x-auto w-80">
+         <button class="change-week" type="button"  onclick="changeWeek(-1)"> ◀ </button>
+
+         <button class="agendar-button activo" type="button"><span class="agendar-mes"></span><span class="button-dia"></span>Lunes     </button>
+         <button class="agendar-button" type="button"><span class="agendar-mes"></span><span class="button-dia"></span>Martes    </button>
+         <button class="agendar-button" type="button"><span class="agendar-mes"></span><span class="button-dia"></span>Miercoles </button>
+         <button class="agendar-button" type="button"><span class="agendar-mes"></span><span class="button-dia"></span>Jueves    </button>
+         <button class="agendar-button" type="button"><span class="agendar-mes"></span><span class="button-dia"></span>Viernes   </button>
+         <button class="agendar-button" type="button"><span class="agendar-mes"></span><span class="button-dia"></span>Sabado    </button>
+
+         <button class="change-week" type="button" onclick="changeWeek(1)"> ▶ </button>
+      </div>
+
+      <div class="agendar-content m-x-auto w-80">
+         {% for i in range(12) %}
+         <button class="content-item" onclick="changeItem(this, 'content-item', true)" type="button"><span>Tematica Examen</span>00:00</button>
+         {% endfor %}
+      </div>
+
+      <h4 class="text-center">⋄ Horas Disponibles ⋄</h4>
+
+      <input id="form-data" name="data" type="hidden" value="">
+
+      <button class="input-button" type="submit">AGENDAR</button>
+
+   </form>
+
+</section>
+{% endblock %}

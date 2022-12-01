@@ -1,0 +1,77 @@
+{% extends './layout.html' %}
+
+{% block title %}{{ data.titulo }}{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/prequirurgico.css') }}">
+
+{% include './prequirurgico/prequirurgico_steps.html' %}
+
+<section class="frame-parent">
+    <h2>Evaluacion de Paciente</h2>
+    <form class="datos-paciente w-60 text-start m-x-auto" method="POST">
+        <br>
+        
+        <h4>Complicaciones Cardiacas</h4>
+        <div class="input-group evaluacion-item">
+            <label>Hipertensión no controlada o con daño de órgano blanco</label>
+            <input class="input-checkbox" type="checkbox" name="check1">
+
+        </div>
+        <div class="input-group evaluacion-item">
+            <label>Insuficiencia Cardiaca</label>
+            <input class="input-checkbox" type="checkbox" name="">
+        </div>
+        <div class="input-group evaluacion-item">
+            <label>Cardiopatía Coronaria</label>
+            <input class="input-checkbox" type="checkbox" name="">
+        </div>
+        <div class="input-group evaluacion-item">
+            <label>Valvulopatía cardiaca</label>
+            <input class="input-checkbox" type="checkbox" name="">
+        </div>
+        <div class="input-group evaluacion-item">
+            <label>Trastornos de conducción del ritmo cardiaco</label>
+            <input class="input-checkbox" type="checkbox" name="">
+        </div>
+        
+        <br>
+
+        <h4>Complicaciones Respiratorias</h4>
+        <div class="input-group evaluacion-item">
+            <label>Enfermedad Pulmonar Crónica</label>
+            <input class="input-checkbox" type="checkbox" name="">
+        </div>
+
+        <br>
+
+        <h4>Otras Complicaciones</h4>
+        <div class="input-group evaluacion-item">
+            <label>Limitación de la capacidad funcional</label>
+            <input class="input-checkbox" type="checkbox" name="">
+        </div>
+        <div class="input-group evaluacion-item">
+            <label>Diabetes Mellitus</label>
+            <input class="input-checkbox" type="checkbox" name="">
+        </div>
+        <div class="input-group evaluacion-item">
+            <label>Artritis Reumatoide</label>
+            <input class="input-checkbox" type="checkbox" name="">
+        </div>
+        <div class="input-group evaluacion-item">
+            <label>Insuficiencia Renal</label>
+            <input class="input-checkbox" type="checkbox" name="">
+        </div>
+        <div class="input-group evaluacion-item">
+            <label>Insuficiencia Hepática</label>
+            <input class="input-checkbox" type="checkbox" name="">
+        </div>
+        <div class="input-group evaluacion-item">
+            <label>IMC mayor a 35,3</label>
+            <input class="input-checkbox" type="checkbox" name="">
+        </div>
+
+        <button class="input-button" type="submit">LISTO</button>
+    </form>
+</section>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends './layout.html' %}
+
+{% block title %}{{ data.titulo }}{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/prequirurgico.css') }}">
+<div class="frame-login">
+   <div class="login-side left">
+      <div class="chile-block"></div>
+      <div class="container-text">
+         <h2>PORTAL INTRANET</h2>
+         <p>Servicio de Salud<br>Metropolitano<br>Sur Oriente</p>
+      </div>
+   </div>
+   <div class="login-side right">
+      <form method="POST">
+         <h3 class="m-b-0">INICIAR SESIÓN</h3>
+         <p style="color: {%if data.error%}red{%else%}transparent{%endif%}; font-size: small; font-weight: bold; user-select: none;">
+            USUARIO O CONTRASEÑA INCORRECTOS
+         </p>
+         
+         <input name="user" type="text" placeholder="Ingresa tu RUN" class="login-input" onkeyup="rutInput(this)"" required>
+         <input name="pass" type="password" placeholder="Ingresa tu Clave" class="login-input" required>
+         <a href="#" class="login-forgot">¿Olvidaste tu Clave?</a>
+         <button type="submit" class="login-ingresar">INGRESAR</button>
+         <script src="{{url_for('static', filename='js/validator.js')}}"></script>
+      </form>
+   </div>
+</div>
+{% endblock %}

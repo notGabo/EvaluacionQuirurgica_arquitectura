@@ -1,0 +1,25 @@
+{% extends './layout.html' %}
+
+{% block title %}{{ data.titulo }}{% endblock %}
+
+{% block content %}
+<!-- <h1> Posts</h1>
+    {% for post in posts %}
+        <div class='post'>
+            <p>{{ post['created'] }}</p>
+            <h2>{{ post['title'] }}</h2>
+            <p>{{ post['content'] }}</p>
+        </div>
+    {% endfor %} -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/home.css')}}">
+    <section class="frame-home w-70 m-auto text-center">
+        <h1 class="m-t-0">PORTAL INTRANET</h1>
+        <h3 class="m-t-0">Bienvenido {{data.nombre}}</h3>
+        <div class="container m-x-auto">
+            <a href="#"><img src="{{url_for('static', filename='img/home/1.png')}}" alt=""> <span>Pacientes</span></a>
+            <a href="#"><img src="{{url_for('static', filename='img/home/2.png')}}" alt=""> <span>Mi perfil</span></a>
+            <a href="#"><img src="{{url_for('static', filename='img/home/3.png')}}" alt=""> <span>Accesibilidad</span></a>
+            <a href="#"><img src="{{url_for('static', filename='img/home/4.png')}}" alt=""> <span>Mis <br> asignaciones <br> y <br> procedimientos</span></a>
+        </div>
+    </section>
+{% endblock %}

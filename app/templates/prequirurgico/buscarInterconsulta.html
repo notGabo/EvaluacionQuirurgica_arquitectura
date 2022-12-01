@@ -1,0 +1,55 @@
+{% extends './layout.html' %}
+
+{% block title %}{{ data.titulo }}{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/prequirurgico.css') }}">
+<section class="frame-parent">
+   
+   <h2>Busqueda de Interconsulta</h2>
+   <form class="tipo-documento w-50 m-x-auto" method="POST">
+      
+      <h4>Tipo de documento</h4>
+      <select class="input-select w-100" name="select-documento" id="select-documento" onchange="tipoDocumento()">
+         <option value="0">Carnet de Identidad</option>
+         <option value="1">Pasaporte</option>
+      </select>
+
+      <h4 id="option-title">RUT del Paciente</h4>
+      <input class="input-text w-100" type="text" name="option-input" id="option-input" placeholder="Ingresar número de documento" required>
+      <p id="option-message">Ingrese <b>RUT</b> del paciente.</p>
+
+      <button class="input-button" type="submit">BUSCAR</button>
+   </form>
+
+   {# LA TABLA APARECERA DESPUES DE LA BUSQUEDA #}
+   {% if data.buscado %}
+   <h3 class="text-center">Resultado Busqueda</h4>
+   <table class="w-100 m-x-auto" id="resultado-ic">
+      <thead>
+         <th width="35%">Paciente</th>
+         <th width="35%">Profesional</th>
+         <th width="12%">Fecha</th>
+         <th width="18%">Estado</th>
+      </thead>
+      {# CONTENIDO DE LA BUSQUEDA #}
+      <tbody>
+      {% if table %}
+         {% for row in table %}
+         <tr onclick="window.location.href = '{{url_for('datosPaciente', rut_paciente=row.rut_pac)}}';">
+            <td>{{row.paciente}}</td>
+            <td>{{row.funcionario}}</td>
+            <td>{{row.fecha}}</td>
+            <td>{{row.estado}}</td>
+         </tr>
+         {% endfor %}
+      </tbody>
+   </table>
+      {% else %}
+   </table>
+   <h4 class="text-center">NO HAY INTERCONSULTAS</h4>
+      {% endif %}
+   {% endif %}
+
+</section>
+{% endblock %}

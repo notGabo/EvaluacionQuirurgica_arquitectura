@@ -1,0 +1,54 @@
+{% extends './layout.html' %}
+
+{% block title %}{{ data.titulo }}{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/prequirurgico.css') }}">
+
+{% include './prequirurgico/prequirurgico_steps.html' %}
+
+<section class="frame-parent">
+    <h2>Actualizar Datos de Paciente</h2>
+    <form class="datos-paciente text-start" method="POST">
+        <div class="input-group">
+            <label>RUT</label>
+            <input class="input-text w-50" type="text" name="rut" id="rut-input" placeholder="12.345.678-K" required value="{{paciente.rut}}">
+        </div>
+        
+        <div class="input-group">
+            <label>Nombres</label>
+            <input class="input-text w-50" type="text" name="apellidos" id="nombres-input" required value="{{paciente.nombres}}">
+        </div>
+
+        <div class="input-group">
+            <label>Apellidos</label>
+            <input class="input-text w-50" type="text" name="apellidos" id="apellidos-input" required value="{{paciente.apellidos}}">
+        </div>
+
+        <div class="input-group">
+            <label>Fecha de Nacimiento</label>
+            <input class="input-text w-50" type="date" name="nacimiento" id="nacimiento-input" required value="{{paciente.fecha}}">
+        </div>
+
+        <div class="input-group">
+            <label>Telefonos de contacto</label>
+            <div class="w-50">
+                <input class="input-text w-100" type="tel" name="numero1" id="numero-input" placeholder="Telefono 1" required value="{{paciente.numeros}}">
+                <input class="input-text w-100" type="tel" name="numero2" id="numero-input" placeholder="Telefono 2 (opcional)">
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label>Correo Electronico (Opcional)</label>
+            <input class="input-text w-50" type="email" name="correo" id="correo-input" placeholder="correo@email.com" value="{{paciente.correo}}">
+        </div>
+
+        <div class="input-group">
+            <label>Dirección</label>
+            <input class="input-text w-50" type="text" name="direccion" id="direccion-input" placeholder="Calle 1234, Comuna" required value="{{paciente.direccion}}">
+        </div>
+        
+        <button class="input-button" type="submit">LISTO</button>
+    </form>
+</section>
+{% endblock %}

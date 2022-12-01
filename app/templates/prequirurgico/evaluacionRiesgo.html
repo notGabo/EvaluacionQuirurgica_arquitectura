@@ -1,0 +1,88 @@
+{% extends './layout.html' %}
+
+{% block title %}{{ data.titulo }}{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/prequirurgico.css') }}">
+
+{% include './prequirurgico/prequirurgico_steps.html' %}
+
+<section class="frame-parent">
+    <h2>Evaluacion de Paciente</h2>
+    <form class="evaluacion-riesgo" method="POST">
+        <div class="procedimientos-section w-60 text-start p-x-1">
+            <br>
+            <div class="input-group evaluacion-item" data-riesgo="1">
+                <label>Cirugía intratorácica</label>
+                <input class="input-checkbox" type="checkbox" name="check1" >
+            </div>
+            <div class="input-group evaluacion-item" data-riesgo="1">
+                <label>Intraperitoneal</label>
+                <input class="input-checkbox" type="checkbox" name="" >
+            </div>
+            <div class="input-group evaluacion-item" data-riesgo="1">
+                <label>cabeza y cuello</label>
+                <input class="input-checkbox" type="checkbox" name="" >
+            </div>
+            <div class="input-group evaluacion-item" data-riesgo="1">
+                <label>trasplante renal</label>
+                <input class="input-checkbox" type="checkbox" name="" >
+            </div>
+            <div class="input-group evaluacion-item" data-riesgo="1">
+                <label>ginecológica o urológica mayor</label>
+                <input class="input-checkbox" type="checkbox" name="" >
+            </div>
+            <div class="input-group evaluacion-item" data-riesgo="1">
+                <label>cadera</label>
+                <input class="input-checkbox" type="checkbox" name="" >
+            </div>
+            <div class="input-group evaluacion-item" data-riesgo="1">
+                <label>carótida</label>
+                <input class="input-checkbox" type="checkbox" name="" >
+            </div>
+            <div class="input-group evaluacion-item" data-riesgo="1">
+                <label>endovascular</label>
+                <input class="input-checkbox" type="checkbox" name="" >
+            </div>
+            <div class="input-group evaluacion-item" data-riesgo="1">
+                <label>columna (excepto lumbar 1 nivel)</label>
+                <input class="input-checkbox" type="checkbox" name="" >
+            </div>
+            <div class="input-group evaluacion-item" data-riesgo="2">
+                <label>Cirugía vascular</label>
+                <input class="input-checkbox" type="checkbox" name="" >
+            </div>
+            <div class="input-group evaluacion-item" data-riesgo="2">
+                <label>cirugía abdominal mayor (prolongadas o con pérdidas hemáticas)</label>
+                <input class="input-checkbox" type="checkbox" name="" >
+            </div>
+            <div class="input-group evaluacion-item" data-riesgo="2">
+                <label>esofagectomía</label>
+                <input class="input-checkbox" type="checkbox" name="" >
+            </div>
+            <div class="input-group evaluacion-item" data-riesgo="2">
+                <label>cardiaca</label>
+                <input class="input-checkbox" type="checkbox" name="" >
+            </div>
+            <div class="input-group evaluacion-item" data-riesgo="2">
+                <label>trasplante</label>
+                <input class="input-checkbox" type="checkbox" name="" >
+            </div>
+            <div class="input-group evaluacion-item" data-riesgo="2">
+                <label>resección pulmonar</label>
+                <input class="input-checkbox" type="checkbox" name="" >
+            </div>
+            <div class="input-group evaluacion-item" data-riesgo="2">
+                <label>adrenal</label>
+                <input class="input-checkbox" type="checkbox" name="" >
+            </div>
+        </div>
+        <div class="riesgo-section w-40 text-center p-1">
+            <h3>Nivel de Riesgo</h3>
+            <span class="w-60 p-y-2" id="riesgo-output">BAJO</span>
+            <br>
+            <button class="input-button m-t-1" type="submit">LISTO</button>
+        </div>
+    </form>
+</section>
+{% endblock %}

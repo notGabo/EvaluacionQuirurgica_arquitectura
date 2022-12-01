@@ -6,25 +6,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}">
+    <!-- <link rel="shortcut icon" type="image/x-icon" href="https://redsalud.ssmso.cl/wp-content/themes/gobcl-wp-master/img/favicon.ico"> -->
+    <link rel="icon" type="image/x-icon" href="{{url_for('static', filename='img/isologo-ssmso.jpg')}}">
 </head>
-<body>
+<body> 
     <header>
-        <img src="https://redsalud.ssmso.cl/wp-content/uploads/2016/08/isologo-ssmso.jpg" alt="" class="logo-chile">
-        <nav>
-            <!-- <nav-item href="https://redsalud.ssmso.cl/">Inicio</nav-item> -->
-            <nav-item href="{{ url_for('login') }}" {% if data.actualOption == 'login' %} class="nav-active" {% endif %}>Iniciar sesión</nav-item>
-            <!-- <nav-item href="#">soporte técnico</nav-item> -->
-            <nav-item href="#" class="dropdown {% if data.actualOption == 'pre-quirurgico' %} nav-active{% endif %}">
+        <img src="{{url_for('static', filename='img/isologo-ssmso.jpg')}}" alt="" class="logo-chile">
+        {% if data.actualFase != 'login' %}
+        <nav class="w-70 m-x-auto">
+            <nav-item href="{{url_for('home')}}" class="{% if data.actualFase == 'home' %}nav-active{% endif %}">Home</nav-item>
+
+            <nav-item href="#" class="dropdown {% if data.actualFase == 'pre-quirurgico' %} nav-active{% endif %}">
                 Pre quirúrgico
                 <div class="dropdown-content">
-                    <a href="{{ url_for('evaluarPaciente')}}">Evaluar Paciente</a>
-                    <a href="{{ url_for('buscarPaciente')}}">Buscar Paciente</a>
+
+                    <a href="#">Interconsulta</a>
+                    <a href="{{ url_for('buscarInterconsulta')}}">Evaluación de Paciente</a>
+                    <a href="#">Programación de Cirugía</a>
+                    <a href="#">Programación de Pabellón</a>
                 </div>
             </nav-item>
-            <nav-item href="#">Programación de Pabellones</nav-item>
-            <nav-item href="#">Post quirúrgico</nav-item>
-            <!-- <nav-item href="#"></nav-item> -->
+
+            <nav-item href="#" class="dropdown {% if data.actualFase == 'quirurgico' %} nav-active{% endif %}">
+                Quirúrgico
+                <div class="dropdown-content">
+                    <a href="#">Preparación paciente</a>
+                    <a href="#">Preparación de Pabellón</a>
+                    <a href="#">Intervención Quirúrgica</a>
+                </div>
+            </nav-item>
+            
+            <nav-item href="#" class="dropdown {% if data.actualFase == 'post-quirurgico' %} nav-active{% endif %}">
+                Post-Quirúrgico
+                <div class="dropdown-content">
+                    <a href="#">Recuperación y Alta</a>
+                    <a href="#">Seguimiento</a>
+                </div>
+            </nav-item>
+            
+            <!-- <nav-item href="#" class="dropdown {% if data.actualFase == 'paciente' %} nav-active{% endif %}">
+                Paciente
+                <div class="dropdown-content">
+                    <a href="{{url_for('buscarPaciente')}}">Buscar Paciente</a>
+                    <a href="#">Consultar Estado</a>
+                    <a href="#">Ficha Paciente</a>
+                </div>
+            </nav-item> -->
+            <nav-item href="{{url_for('logout')}}">
+                Cerrar Sesión
+                <!-- <div class="dropdown-content">
+                    <a href="#">Mi Perfil</a>
+                    <a href="#">Mis Procedimientos</a>
+                    <a href="#">Mis Asignaciones</a>
+                    <a href="#">Cerrar Sesión</a>
+                </div> -->
+            </nav-item>
         </nav>
+        {% endif %}
     </header>
 
     <div class="main-content">
@@ -38,7 +76,7 @@
                 <h4>Gestión de Salud</h4>
                 <ul>
                     <li>DEIS</li>
-                    <li>GES – Registro Urgencia</li>
+                    <li>GES - Registro Urgencia</li>
                     <li>Gestión de Camas</li>
                     <li>Proyecto MIS</li>
                     <li>Urgencia Infantil</li>
@@ -71,7 +109,7 @@
                     <li>Sistema para la visualización de imágenes</li>
                     <li>Mapa Urgencia SSMSO</li>
                     <li>SISAPS</li>
-                    <li>SGS – Sistema Gestión SIDRA 2.0</li>
+                    <li>SGS - Sistema Gestión SIDRA 2.0</li>
                 </ul>
             </div>
         </div>
